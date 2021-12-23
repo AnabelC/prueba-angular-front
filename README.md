@@ -1,6 +1,34 @@
-# PlatziStore
+# ✨ PruebaAngularFront ✨
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
+
+Este proyecto esta basado en el proyecto del curso de Angular 8: **Platzi Store**, a diferencia que solo lista productos.
+
+Actualmente se esta consultando la lista de los productos de un API expuesta en heroku http://platzi-store.herokuapp.com, se puede ver en las variables del environment.
+
+## Secciones
+
+Consta de 2 secciones:
+ - Home: Muestra los productos en cards.
+ - Products: Seccion admisnistrativa de los productos, los lista, permite modificarlos, eliminarlos y se pueden agregar nuevos productos.
+
+ Los archivos correspondientes al campo imagen son subidos al storage de Firebase. 
+
+## Consideracion Importante
+
+ Para la ejecucion del proyecto debe agregarse al compilerOptions del archivo tsconfig.json, las siguientes lineas.
+
+```
+  # tsconfig.json
+  "compilerOptions": {
+	  ...
+		"skipDefaultLibCheck": true,
+		"skipLibCheck": true,
+	  ...
+	}
+```
+
+> Esto debido a un problema ocasionado por una version nueva de la libreria de firebase, miestras se corrije el error.
 
 ## Development server
 

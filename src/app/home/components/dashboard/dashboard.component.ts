@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../../../core/models/product.model';
+import { ProductsService } from './../../../core/services/products/products.service'
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
@@ -13,33 +15,27 @@ import { SongService } from './../../../core/services/songs/songs.service'
 })
 export class DashboardComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
-  constructor(private breakpointObserver: BreakpointObserver, private songService: SongService) {}
+  constructor(private productsService: ProductsService, private breakpointObserver: BreakpointObserver, private songService: SongService) {}
 
   songs: Song[] = [];
 
-  ngOnInit(): void {
-    this.fetchSong();
+  products: Product[] = [];
+
+  clickProduct(id: number){
+    console.log('product');
+    console.log(id);
   }
 
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
+  ngOnInit(): void {
+    this.fetchProducts();
+   // this.fetchSong();
+  }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
+  fetchProducts(){
+    this.productsService.getAllProducts().subscribe(products => {
+      this.products = products;
+    });
+  }
 
   fetchSong(){
     this.songService.getSongs()

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "platzi-store": {
+    "prueba-angular-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/platzi-store",
+            "outputPath": "dist/prueba-angular-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -110,13 +110,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "platzi-store:build:production"
+              "browserTarget": "prueba-angular-front:build:production"
             },
             "stag": {
-              "browserTarget": "platzi-store:build:stag"
+              "browserTarget": "prueba-angular-front:build:stag"
             },
             "development": {
-              "browserTarget": "platzi-store:build:development"
+              "browserTarget": "prueba-angular-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -124,7 +124,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "platzi-store:build"
+            "browserTarget": "prueba-angular-front:build"
           }
         },
         "test": {
@@ -160,7 +160,7 @@
       }
     }
   },
-  "defaultProject": "platzi-store",
+  "defaultProject": "prueba-angular-front",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }

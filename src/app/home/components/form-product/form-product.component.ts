@@ -25,12 +25,12 @@ export class FormProductComponent implements OnInit {
     private productsService: ProductsService,
     private router: Router,
     private storage: AngularFireStorage,
-  ) { 
+  ) {
     this.buildForm();
   }
 
-  ngOnInit(): void {
-  }
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+  ngOnInit(): void { }
 
   saveProduct(event: Event){
     event.preventDefault();
@@ -39,7 +39,7 @@ export class FormProductComponent implements OnInit {
       this.productsService.createProduct(product)
       .subscribe((newProduct) =>{
         console.log(newProduct);
-        this.router.navigate(['./admin/products'])
+        this.router.navigate(['./products'])
       });
     }
   }

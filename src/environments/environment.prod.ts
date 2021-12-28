@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  url_api: 'http://platzi-store.herokuapp.com',
+  url_api: 'https://pure-basin-85787.herokuapp.com',
   firebaseConfig : {
     apiKey: "AIzaSyAqMoUqoIbiEFrDDAUY-BzJ2K07RSdrsL4",
     authDomain: "prueba-angular-front.firebaseapp.com",

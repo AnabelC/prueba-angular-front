@@ -7,14 +7,14 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Title" formControlName="title" matInput type="text">
+                        <input placeholder="Nombre" formControlName="name" matInput type="text">
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Price" formControlName="price" matInput type="number">
+                        <input placeholder="Precio" formControlName="price" matInput type="number">
                     </mat-form-field>
                     <div *ngIf="priceField?.errors && priceField?.dirty">
                         <mat-error *ngIf="priceField?.hasError('price_invalid')">
@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <textarea placeholder="Description" formControlName="description" matInput></textarea>
+                        <textarea placeholder="Descripcion" formControlName="description" matInput></textarea>
                     </mat-form-field>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './../../../core/models/product.model';
-import { Song } from './../../../core/models/song.model';
 
 import { ProductsService } from './../../../core/services/products/products.service'
 
@@ -12,7 +11,7 @@ import { ProductsService } from './../../../core/services/products/products.serv
 export class ProductsListComponent implements OnInit {
 
   products: Product[] = []
-  displayedColumns: string[] = ['id', 'title', 'price', 'actions'];
+  displayedColumns: string[] = ['_id', 'name', 'price', 'actions'];
 
   constructor(private productsService: ProductsService) { }
 
@@ -23,14 +22,13 @@ export class ProductsListComponent implements OnInit {
   fetchProduct(){
     this.productsService.getAllProducts()
     .subscribe(products =>{
-      this.products = products
+      this.products = products;
     })
   }
 
   deleteProduct(id: string){
     this.productsService.deleteProduct(id)
     .subscribe(rta =>{
-      console.log(rta)
       this.fetchProduct();
     })
   }

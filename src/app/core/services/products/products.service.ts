@@ -32,7 +32,4 @@ export class ProductsService {
   deleteProduct(id: string){
     return this.http.delete(`${environment.url_api}/products/${id}`);
   }
-
-
-
 }

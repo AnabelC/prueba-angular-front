@@ -38,7 +38,6 @@ export class FormProductComponent implements OnInit {
       const product = this.form.value
       this.productsService.createProduct(product)
       .subscribe((newProduct) =>{
-        console.log(newProduct);
         this.router.navigate(['./products'])
       });
     }
@@ -47,7 +46,7 @@ export class FormProductComponent implements OnInit {
   uploadFile(event: Event){
     const target = event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
-    const name = 'image.png';
+    const name = file.name;
     const fileRef = this.storage.ref(name);
     const task = this.storage.upload(name, file);
 
@@ -56,7 +55,6 @@ export class FormProductComponent implements OnInit {
       finalize(() => {
         this.image$ = fileRef.getDownloadURL();
         this.image$.subscribe(url => {
-          console.log(url);
           this.form.get('image')?.setValue(url);
         });
       })
@@ -66,8 +64,7 @@ export class FormProductComponent implements OnInit {
 
   private buildForm(){
     this.form = this.formBuilder.group({
-      id:['',[Validators.required]],
-      title: ['',[Validators.required]],
+      name: ['',[Validators.required]],
       price: [0,[Validators.required, MyValidators.isPriceValid]],
       image: '',
       description: ['',[Validators.required]],

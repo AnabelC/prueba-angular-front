@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Este proyecto esta basado en el proyecto del curso de Angular 8: **Platzi Store**, a diferencia que solo lista productos.
 
-Actualmente se esta consultando la lista de los productos de un API expuesta en heroku http://platzi-store.herokuapp.com, se puede ver en las variables del environment.
+Actualmente se esta consultando la lista de los productos del API expuesta en heroku https://pure-basin-85787.herokuapp.com (se puede ver en las variables del environment), la cual se encuentra en el repo https://github.com/AnabelC/prueba-nest-back y la misma esta conectada a una Base de datos usando Mongo Atlas, con la coleccion de Productos.
 
 ## Secciones
 

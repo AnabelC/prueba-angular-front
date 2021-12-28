@@ -13,21 +13,21 @@ import { ProductsService } from 'src/app/core/services/products/products.service
 export class ProductEditComponent implements OnInit {
 
   form!: FormGroup;
-  id!: string;
+  _id!: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private productsService: ProductsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-  ) { 
+  ) {
     this.buildForm();
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) =>{
-      this.id = params['id'];
-      this.productsService.getProduct(this.id)
+      this._id = params['_id'];
+      this.productsService.getProduct(this._id)
       .subscribe(product =>{
         this.form.patchValue(product);
       });
@@ -38,9 +38,8 @@ export class ProductEditComponent implements OnInit {
     event.preventDefault();
     if(this.form.valid){
       const product = this.form.value
-      this.productsService.updateProduct(this.id, product)
+      this.productsService.updateProduct(this._id, product)
       .subscribe((newProduct) =>{
-        console.log(newProduct);
         this.router.navigate(['./products'])
       });
     }
@@ -48,7 +47,7 @@ export class ProductEditComponent implements OnInit {
 
   private buildForm(){
     this.form = this.formBuilder.group({
-      title: ['',[Validators.required]],
+      name: ['',[Validators.required]],
       price: [0,[Validators.required, MyValidators.isPriceValid]],
       image: '',
       description: ['',[Validators.required]],
